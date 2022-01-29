@@ -9,11 +9,14 @@ class Ship {
   }
 
   hit(coordinate) {
-    this.ship[coordinate] = "*";
+    if(!this.sunck){
+      this.ship[coordinate] = "*";
+      this.isSunk();
+    }
   }
 
   isSunk() {
-    if (this.ship.every((elem) => elem != "*")) {
+    if (this.ship.every((elem) => elem == "*")) {
       this.sunk = true;
     }
     return this.sunk;
