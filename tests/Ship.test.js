@@ -16,7 +16,7 @@ describe("Ship Factory Function", () => {
     expect(ship.ship).toEqual(["", "", "", "*", ""]);
   });
 
-  test("isSunck function", () => {
+  test("isSunk function", () => {
     expect(ship.isSunk()).toBe(false);
   });
 

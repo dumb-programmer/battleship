@@ -9,7 +9,7 @@ class Ship {
   }
 
   hit(coordinate) {
-    if(!this.sunck){
+    if(!this.sunk){
       this.ship[coordinate] = "*";
       this.isSunk();
     }

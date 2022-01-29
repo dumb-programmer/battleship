@@ -67,7 +67,7 @@ function GameBoard() {
     }
   }
 
-  function allSunck(){
+  function allSunk(){
     let shipsSunkStates = [];
     for(let ship in ships){
       shipsSunkStates.push(ships[ship].sunk);
@@ -79,7 +79,7 @@ function GameBoard() {
     return board;
   }
 
-  return { place, receiveAttack, getBoard, allSunck };
+  return { place, receiveAttack, getBoard, allSunk };
 }
 
 module.exports = GameBoard;
