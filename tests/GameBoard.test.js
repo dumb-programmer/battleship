@@ -46,6 +46,10 @@ describe("GameBoard Factory Function", () => {
     ]);
   });
 
+  test("If we can't place a ship it throws an exception", () => {
+    expect(gameBoard.place(new Ship(3), "x", 5, 7)).toBe(-1);
+  });
+
   test("We can attack on a ship", () => {
     gameBoard.receiveAttack(0, 0);
     expect(gameBoard.getBoard()).toEqual([
@@ -75,6 +79,23 @@ describe("GameBoard Factory Function", () => {
   });
 
   test("Game board reports whether all the ships have sunk", () => {
-    expect(gameBoard.allSunck()).toBe(false);
+    expect(gameBoard.allSunk()).toBe(false);
+    
+    gameBoard.receiveAttack(0,1);
+    gameBoard.receiveAttack(0,2);
+    gameBoard.receiveAttack(0,3);
+    gameBoard.receiveAttack(0,4);
+
+    gameBoard.receiveAttack(1,0);
+    gameBoard.receiveAttack(2,0);
+    gameBoard.receiveAttack(3,0);
+    gameBoard.receiveAttack(4,0);
+
+    gameBoard.receiveAttack(1, 1);
+    gameBoard.receiveAttack(2, 1);
+    gameBoard.receiveAttack(3, 1);
+    
+
+    expect(gameBoard.allSunk()).toBe(true);
   });
 });

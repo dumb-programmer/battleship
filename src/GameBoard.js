@@ -34,23 +34,32 @@ function GameBoard() {
     return shipMarker;
   }
 
-  function place(ship, axis, start, row_or_col_idx) {
+  function place(ship, axis, row_start, col_start) {
     const shipSize = ship.size();
-    const endIdx = start + shipSize;
-    if (endIdx < board.length) {
-      const shipMarker = getShipMarker(shipSize);
-      ships[shipMarker] = ship;
-      let shipIndex = 0;
-      if (axis == "x") {
-        for (let j = start; j < endIdx; j++) {
-          board[row_or_col_idx][j] = shipMarker + "_" + shipIndex;
+    const shipMarker = getShipMarker(shipSize);
+    if (axis === "x") {
+      const endIdx = col_start + shipSize - 1;
+      if (endIdx < board.length) {
+        ships[shipMarker] = ship;
+        let shipIndex = 0;
+        for (let j = col_start; j <= endIdx; j++) {
+          board[row_start][j] = shipMarker + "_" + shipIndex;
           shipIndex++;
         }
       } else {
-        for (let i = start; i < endIdx; i++) {
-          board[i][row_or_col_idx] = shipMarker + "_" + shipIndex;
+        return -1;
+      }
+    } else {
+      const endIdx = row_start + shipSize - 1;
+      if (endIdx < board.length) {
+        ships[shipMarker] = ship;
+        let shipIndex = 0;
+        for (let i = row_start; i <= endIdx; i++) {
+          board[i][col_start] = shipMarker + "_" + shipIndex;
           shipIndex++;
         }
+      } else {
+        return -1;
       }
     }
   }
@@ -58,7 +67,7 @@ function GameBoard() {
   function receiveAttack(i, j) {
     const shipMarker = board[i][j];
     const [shipIdentifier, shipIndex] = shipMarker.split("_");
-    if (board[i][j].startsWith('s')) {
+    if (board[i][j].startsWith("s")) {
       board[i][j] = "*";
       const ship = ships[shipIdentifier];
       ship.hit(shipIndex);
@@ -67,9 +76,9 @@ function GameBoard() {
     }
   }
 
-  function allSunk(){
+  function allSunk() {
     let shipsSunkStates = [];
-    for(let ship in ships){
+    for (let ship in ships) {
       shipsSunkStates.push(ships[ship].sunk);
     }
     return shipsSunkStates.every((ship) => ship);
