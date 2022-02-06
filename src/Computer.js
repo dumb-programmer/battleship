@@ -2,7 +2,7 @@ function Computer() {
   let already_marked = [];
 
   function generateRandomNo() {
-    return Math.round(Math.random() * 7);
+    return Math.round(Math.random() * 9);
   }
 
   function unique_row_and_col(row, col) {
