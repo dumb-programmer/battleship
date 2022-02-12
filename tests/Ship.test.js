@@ -1,4 +1,4 @@
-const Ship = require("../src/Ship");
+import Ship from "../src/Ship";
 
 describe("Ship Factory Function", () => {
   const ship = new Ship(5);

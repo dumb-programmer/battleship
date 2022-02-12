@@ -1,6 +1,6 @@
-const GameBoard = require("../src/GameBoard.js");
-const Ship = require("../src/Ship.js");
-const Computer = require("../src/Computer.js");
+import GameBoard from "../src/GameBoard.js";
+import Ship from "../src/Ship.js";
+import Computer from "../src/Computer.js";
 
 describe("Computer Factory Function", () => {
     const c1 = Computer();

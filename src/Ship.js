@@ -9,7 +9,7 @@ class Ship {
   }
 
   hit(coordinate) {
-    if(!this.sunk){
+    if (!this.sunk) {
       this.ship[coordinate] = "*";
       this.isSunk();
     }
@@ -22,9 +22,9 @@ class Ship {
     return this.sunk;
   }
 
-  size(){
+  size() {
     return this.length;
   }
 }
 
-module.exports = Ship;
+export default Ship;

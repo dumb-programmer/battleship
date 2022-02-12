@@ -1,6 +1,6 @@
-const GameBoard = require("../src/GameBoard.js");
-const Ship = require("../src/Ship.js");
-const Player = require("../src/Player.js");
+import GameBoard from "../src/GameBoard.js";
+import Ship from "../src/Ship.js";
+import Player from "../src/Player.js";
 
 describe("Player Factory Function", () => {
   const p1 = new Player("Josh");

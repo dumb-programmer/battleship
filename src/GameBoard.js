@@ -1,5 +1,5 @@
 function GameBoard() {
-  board = [
+  let board = [
     ["", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", ""],
@@ -11,8 +11,8 @@ function GameBoard() {
     ["", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", ""],
   ];
-  ships = {};
-  ship_no = 1;
+  let ships = {};
+  let ship_no = 1;
 
   function getShipMarker(shipSize) {
     let shipMarker = "";
@@ -93,4 +93,4 @@ function GameBoard() {
   return { place, receiveAttack, getBoard, allSunk };
 }
 
-module.exports = GameBoard;
+export default GameBoard;
