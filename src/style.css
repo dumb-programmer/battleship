@@ -1,0 +1,21 @@
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+}
+
+.black{
+    background-color: black;
+}
+
+#game-board{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    border: 2px solid black;   
+}
