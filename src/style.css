@@ -1,21 +1,31 @@
-.content{
+.content {
     display: flex;
     justify-content: center;
 }
 
-.box{
+.box, .selected-box {
     height: 40px;
     width: 40px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
-.black{
+.black {
     background-color: black;
 }
 
-#game-board{
+.red {
+    background-color: red;
+    cursor: not-allowed;
+}
+
+.selected-box {
+    cursor: no-drop;
+}
+
+#game-board {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    border: 2px solid black;   
+    border: 2px solid black;
 }
