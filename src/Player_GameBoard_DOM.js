@@ -1,4 +1,6 @@
-function PlayerGameBoardDOM() {
+import Ship from "./Ship";
+
+function PlayerGameBoardDOM(playerBoard) {
   let shipNames = [
     "Carrier",
     "Battleship",
@@ -81,13 +83,13 @@ function PlayerGameBoardDOM() {
     let boxesGrid = makeGrid();
 
     let currentshipSize = 5;
-    
+
     function makeColorBlack() {
       this.classList.add("black");
-      const option = document.querySelector("select").value;
+      const axis = document.querySelector("select").value;
       let row = +this.getAttribute("row");
       let col = +this.getAttribute("column");
-      if (option == "x") {
+      if (axis == "x") {
         let length = col + currentshipSize;
         for (let i = col; i < length; i++) {
           if (!boxesGrid[row][length - 1]) {
@@ -134,6 +136,14 @@ function PlayerGameBoardDOM() {
         const shipName = document.querySelector("#ship-name");
         shipNo++;
         shipName.textContent = shipNames[shipNo];
+        const axis = document.querySelector("select").value;
+        playerBoard.place(
+          new Ship(currentshipSize),
+          axis,
+          +blackBoxes[0].getAttribute("row"),
+          +blackBoxes[0].getAttribute("column")
+        );
+
         currentshipSize--;
 
         if (currentshipSize == 0) {
@@ -150,6 +160,9 @@ function PlayerGameBoardDOM() {
 
           const btn = document.querySelector("#start-game-btn");
           btn.removeAttribute("disabled");
+          btn.addEventListener('click', () => {
+            document.body.innerHTML = "";
+          })
         }
       }
     }

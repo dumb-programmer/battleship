@@ -1,7 +1,9 @@
 import "./style.css";
-import DOM from "./DOM.js";
+import DOM from "./DOM";
+import Game from "./Game";
 
 (function main() {
-  const dom = new DOM();
+  const game = new Game();
+  const dom = new DOM(game.getPlayerBoard());
   dom.render();
 })();
