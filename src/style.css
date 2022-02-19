@@ -23,9 +23,40 @@
     cursor: no-drop;
 }
 
-#game-board {
+.gameboard {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     border: 2px solid black;
+}
+
+.gameboards {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 20px;
+}
+
+#computerboard>.box:hover {
+    background-color: rgb(243, 128, 128);
+}
+
+#playerboard>.box {
+    cursor: auto;
+}
+
+.hit, .miss {
+    cursor: not-allowed;
+}
+
+.hit {
+    background-color: red;
+}
+
+.miss {
+    background-color: blue;
+}
+
+.hit, .miss {
+    cursor: not-allowed;
 }
