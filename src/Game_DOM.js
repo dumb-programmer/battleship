@@ -22,7 +22,6 @@ function GameDOM(game) {
         playerBoard.appendChild(box);
       }
     }
-    // return playerBoard;
   }
 
   function renderComputerGameBoard() {
@@ -35,9 +34,7 @@ function GameDOM(game) {
         box.classList.add("box");
         box.setAttribute("row", i);
         box.setAttribute("column", j);
-        if (board[i][j].charAt(0) == "s") {
-          box.classList.add("black");
-        } else if (board[i][j] == "*") {
+        if (board[i][j] == "*") {
           box.classList.add("hit");
         } else if (board[i][j] == "!") {
           box.classList.add("miss");
@@ -45,7 +42,6 @@ function GameDOM(game) {
         computerBoard.appendChild(box);
       }
     }
-    // return computerBoard;
   }
 
   function playSoundEffect(hit_state) {
