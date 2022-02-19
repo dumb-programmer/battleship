@@ -1,11 +1,13 @@
 import PlayerGameBoardDOM from "./Player_GameBoard_DOM";
+import GameDOM from "./Game_DOM";
 
 class DOM {
-  constructor(playerBoard){
-    this.playerBoard = playerBoard;
+  constructor(game) {
+    this.game = game;
   }
   render() {
-    let playerGameBoardDom = PlayerGameBoardDOM(this.playerBoard);
+    let gameDOM = GameDOM(this.game);
+    let playerGameBoardDom = PlayerGameBoardDOM(this.game.getPlayerBoard(),gameDOM);
     playerGameBoardDom.render();
   }
 }
