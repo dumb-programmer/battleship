@@ -4,6 +4,6 @@ import Game from "./Game";
 
 (function main() {
   const game = new Game();
-  const dom = new DOM(game.getPlayerBoard());
+  const dom = new DOM(game);
   dom.render();
 })();
