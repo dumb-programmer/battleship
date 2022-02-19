@@ -1,6 +1,6 @@
 import Ship from "./Ship";
 
-function PlayerGameBoardDOM(playerBoard) {
+function PlayerGameBoardDOM(playerBoard,gameDOM) {
   let shipNames = [
     "Carrier",
     "Battleship",
@@ -22,7 +22,7 @@ function PlayerGameBoardDOM(playerBoard) {
         gameBoard.appendChild(box);
       }
     }
-    gameBoard.setAttribute("id", "game-board");
+    gameBoard.classList.add("gameboard");
     content.classList.add("content");
     content.appendChild(gameBoard);
     document.body.appendChild(content);
@@ -160,9 +160,10 @@ function PlayerGameBoardDOM(playerBoard) {
 
           const btn = document.querySelector("#start-game-btn");
           btn.removeAttribute("disabled");
-          btn.addEventListener('click', () => {
+          btn.addEventListener("click", () => {
             document.body.innerHTML = "";
-          })
+            gameDOM.render();
+          });
         }
       }
     }
