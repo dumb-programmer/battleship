@@ -45,8 +45,12 @@ function GameBoard() {
         ships[shipMarker] = ship;
         let shipIndex = 0;
         for (let j = col_start; j <= endIdx; j++) {
-          board[row_start][j] = shipMarker + "_" + shipIndex;
-          shipIndex++;
+          if (board[row_start][j].charAt(0) != "s") {
+            board[row_start][j] = shipMarker + "_" + shipIndex;
+            shipIndex++;
+          } else {
+            return -1;
+          }
         }
       } else {
         return -1;
@@ -57,13 +61,18 @@ function GameBoard() {
         ships[shipMarker] = ship;
         let shipIndex = 0;
         for (let i = row_start; i <= endIdx; i++) {
-          board[i][col_start] = shipMarker + "_" + shipIndex;
-          shipIndex++;
+          if (board[i][col_start].charAt(0) != "s") {
+            board[i][col_start] = shipMarker + "_" + shipIndex;
+            shipIndex++;
+          } else {
+            return -1;
+          }
         }
       } else {
         return -1;
       }
     }
+    return 0;
   }
 
   function receiveAttack(i, j) {
@@ -73,8 +82,10 @@ function GameBoard() {
       board[i][j] = "*";
       const ship = ships[shipIdentifier];
       ship.hit(shipIndex);
+      return "hit";
     } else {
       board[i][j] = "!";
+      return "miss";
     }
   }
 
