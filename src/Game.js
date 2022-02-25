@@ -1,15 +1,18 @@
 import GameBoard from "./GameBoard";
 import ComputerGameBoard from "./ComputerGameBoard";
-import Player from "./Player";
 import Computer from "./Computer";
 
 class Game {
   constructor() {
-    this.player = new Player("Test");
+    this.player = null;
     this.playerGameBoard = GameBoard();
     this.computer = new Computer();
     this.computerGameBoard = new ComputerGameBoard();
     this.winner = "";
+  }
+
+  setPlayer(player) {
+    this.player = player;
   }
 
   win() {
