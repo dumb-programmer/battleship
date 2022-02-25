@@ -1,6 +1,6 @@
 import Ship from "./Ship";
 
-function PlayerGameBoardDOM(playerBoard,gameDOM) {
+function PlayerGameBoardDOM(playerBoard, gameDOM) {
   let shipNames = [
     "Carrier",
     "Battleship",
@@ -10,7 +10,12 @@ function PlayerGameBoardDOM(playerBoard,gameDOM) {
   ];
   let shipNo = 0;
 
+  function clearScreen() {
+    document.body.innerHTML = "";
+  }
+
   function renderComponents() {
+    clearScreen();
     const content = document.createElement("div");
     const gameBoard = document.createElement("div");
     for (let i = 0; i < 10; i++) {
