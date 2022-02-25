@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .content {
     display: flex;
     justify-content: center;
@@ -50,13 +54,43 @@
 }
 
 .hit {
-    background-color: red;
+    background-color: #d0312d;
 }
 
 .miss {
-    background-color: blue;
+    background-color: skyblue;
 }
 
 .hit, .miss {
     cursor: not-allowed;
+}
+
+form {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20vh;
+}
+
+input{
+    position: relative;
+    top: 20px;
+}
+
+#player-submit-btn {
+    margin: 20px;
+    position: relative;
+    left: 40px;
+    top: 20px;
+}
+
+.announcement{
+    text-align: center;
+    position: relative;
+    top: 40vh;
 }
