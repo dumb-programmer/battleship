@@ -77,6 +77,7 @@ function GameDOM(game) {
   function announceWinner() {
     document.body.innerHTML = "";
     const h1 = document.createElement("h1");
+    h1.classList.add("announcement");
     h1.innerText = `Game Over! ${game.getWinner()} won`;
     document.body.appendChild(h1);
   }
