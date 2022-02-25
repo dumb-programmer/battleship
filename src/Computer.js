@@ -8,7 +8,7 @@ function Computer() {
   function unique_row_and_col(row, col) {
     let unique = true;
     for (let i = 0; i < already_marked.length; i++) {
-      if ([row, col] == already_marked[i]) {
+      if (`(${row},${col})` == already_marked[i]) {
         unique = false;
         break;
       }
@@ -30,7 +30,7 @@ function Computer() {
 
   function attack(gameBoard) {
     let { row, col } = generateRowAndCol();
-    already_marked.push([row, col]);
+    already_marked.push(`(${row},${col})`);
     return gameBoard.receiveAttack(row, col);
   }
 
