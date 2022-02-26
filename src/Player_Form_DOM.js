@@ -30,7 +30,9 @@ function Player_Form_DOM(game, Player_GameBoard_DOM) {
     container.classList.add("form-container");
     container.appendChild(form);
 
-    document.body.appendChild(container);
+    const main = document.querySelector("#main");
+
+    main.appendChild(container);
   }
 
   function addEventListeners() {

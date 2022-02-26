@@ -75,11 +75,12 @@ function GameDOM(game) {
   }
 
   function announceWinner() {
-    document.body.innerHTML = "";
+    const main = document.querySelector("#main");
+    main.innerHTML = "";
     const h1 = document.createElement("h1");
     h1.classList.add("announcement");
     h1.innerText = `Game Over! ${game.getWinner()} won`;
-    document.body.appendChild(h1);
+    main.appendChild(h1);
   }
 
   function playerClickEvent(event) {
@@ -123,7 +124,9 @@ function GameDOM(game) {
     gameBoards.appendChild(playerBoard);
     gameBoards.appendChild(computerBoard);
 
-    document.body.appendChild(gameBoards);
+    const main = document.querySelector("#main");
+
+    main.appendChild(gameBoards);
     renderPlayerGameBoard();
     renderComputerGameBoard();
 

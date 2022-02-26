@@ -11,7 +11,8 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
   let shipNo = 0;
 
   function clearScreen() {
-    document.body.innerHTML = "";
+    const main = document.querySelector("#main");
+    main.innerHTML = "";
   }
 
   function renderComponents() {
@@ -30,7 +31,8 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
     gameBoard.classList.add("gameboard");
     content.classList.add("content");
     content.appendChild(gameBoard);
-    document.body.appendChild(content);
+    const main = document.querySelector("#main");
+    main.appendChild(content);
 
     const p = document.createElement("p");
     p.textContent = "Place your ";
@@ -38,14 +40,14 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
     b.setAttribute("id", "ship-name");
     b.textContent = shipNames[shipNo];
     p.appendChild(b);
-    document.body.appendChild(p);
+    main.appendChild(p);
 
     const btn = document.createElement("button");
     btn.textContent = "Start Game";
     btn.setAttribute("disabled", "");
     btn.setAttribute("id", "start-game-btn");
 
-    document.body.appendChild(btn);
+    main.appendChild(btn);
 
     const select = document.createElement("select");
     select.name = "axis";
@@ -65,7 +67,7 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
 
     label.appendChild(select);
 
-    document.body.appendChild(label);
+    main.appendChild(label);
   }
 
   function makeGrid() {
@@ -153,9 +155,10 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
 
         if (currentshipSize == 0) {
           const p = document.querySelector("p");
-          document.body.removeChild(p);
+          const main = document.querySelector("#main");
+          main.removeChild(p);
           const label = document.querySelector("label");
-          document.body.removeChild(label);
+          main.removeChild(label);
           boxes.forEach((box) => {
             box.removeEventListener("mouseenter", makeColorBlack);
             box.removeEventListener("mouseleave", makeColorWhite);
@@ -166,7 +169,7 @@ function PlayerGameBoardDOM(playerBoard, gameDOM) {
           const btn = document.querySelector("#start-game-btn");
           btn.removeAttribute("disabled");
           btn.addEventListener("click", () => {
-            document.body.innerHTML = "";
+            main.innerHTML = "";
             gameDOM.render();
           });
         }
