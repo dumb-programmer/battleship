@@ -82,10 +82,8 @@ function GameBoard() {
       board[i][j] = "*";
       const ship = ships[shipIdentifier];
       ship.hit(shipIndex);
-      return "hit";
     } else {
       board[i][j] = "!";
-      return "miss";
     }
   }
 

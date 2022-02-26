@@ -1,6 +1,3 @@
-import hitSound from "./zapsplat_sound_design_cinematic_whoosh_into_impact_missle_like_explosion_001_29904.mp3";
-import missSound from "./zapsplat_warfare_missile_hit_water_bomb_splash_large_003_43731.mp3";
-
 function GameDOM(game) {
   function renderPlayerGameBoard() {
     let board = game.getPlayerBoard().getBoard();
@@ -44,17 +41,6 @@ function GameDOM(game) {
     }
   }
 
-  function playSoundEffect(hit_state) {
-    const audio = document.createElement("audio");
-    audio.style.display = "none";
-    if (hit_state == "hit") {
-      audio.src = hitSound;
-    } else {
-      audio.src = missSound;
-    }
-    audio.play();
-  }
-
   function playerBoardReRender() {
     const playerBoard = document.querySelector("#playerboard");
     playerBoard.innerHTML = "";
@@ -62,8 +48,7 @@ function GameDOM(game) {
   }
 
   function computerPlay() {
-    const hitState = game.computer.attack(game.getPlayerBoard());
-    playSoundEffect(hitState);
+    game.computer.attack(game.getPlayerBoard());
     playerBoardReRender();
   }
 
@@ -87,8 +72,7 @@ function GameDOM(game) {
     let row = +event.target.getAttribute("row");
     let col = +event.target.getAttribute("column");
     let computerBoard = game.getComputerBoard().getBoard();
-    const hitState = computerBoard.receiveAttack(row, col);
-    playSoundEffect(hitState);
+    computerBoard.receiveAttack(row, col);
     let win = game.win();
     if (!win) {
       setTimeout(computerPlay, 100);
@@ -110,7 +94,6 @@ function GameDOM(game) {
 
   function render() {
     const playerBoard = document.createElement("div");
-    console.log(playerBoard);
     playerBoard.classList.add("gameboard");
     playerBoard.setAttribute("id", "playerboard");
 
