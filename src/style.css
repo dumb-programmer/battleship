@@ -2,11 +2,16 @@
     box-sizing: border-box;
 }
 
-.content {
+.content{
+    position: relative;
+    top: 10vh;
+}
+
+.flex-content {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 10vh;
+    /* top: 10vh; */
 }
 
 .box, .selected-box {
@@ -40,7 +45,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: 20px;
+    top: 10vh;
 }
 
 #computerboard>.box:hover {
@@ -71,6 +76,9 @@ form {
     border: 2px solid black;
     border-radius: 10%;
     padding: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .form-container {
@@ -80,7 +88,7 @@ form {
     top: 30vh;
 }
 
-input{
+input {
     position: relative;
     top: 20px;
 }
@@ -92,13 +100,13 @@ input{
     top: 20px;
 }
 
-.announcement{
+.announcement {
     text-align: center;
     position: relative;
     top: 40vh;
 }
 
-header{
+header {
     width: 100vw;
     border: 2px solid black;
     text-align: center;
@@ -108,7 +116,7 @@ header{
     padding: 5px;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
     left: 0;
